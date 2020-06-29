@@ -38,7 +38,7 @@ def get_moves_info(url, num=10):
 
     if len(move_list) > 0:
         # 使用pandas 整理数据到文件
-        movie = pd.DataFrame(data=move_list[:10])
+        movie = pd.DataFrame(data=move_list)
         # windows需要使用gbk字符集
         movie.to_csv('./maoyan.csv', encoding='UTF-8', index=False, header=['影片名称', '类型', '上映日期'])
     else:
