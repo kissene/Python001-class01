@@ -1,3 +1,9 @@
+# 安装
+
+## 说明
+
+所有作业中使用到的库在根目录下的requirements.txt中。
+
 # 极客大学「Python进阶训练营-第1期」作业提交仓库
 
 ## 讲师课件下载地址
@@ -12,7 +18,7 @@
 2. 每周均有一个 `NOTE.md` 文档，你可以将自己当周的学习心得以及做题过程中的思考记录在该文档中。
 
 ## 作业提交规则
- 
+
 1. 先将本仓库 Fork 到自己 GitHub 账号下。
 2. 将 Fork 后的仓库 Clone 到本地，然后在本地仓库中对应周的目录下新建或修改自己的代码作业，当周的学习总结写在对应周的NOTE.md文件里。
 3. 在本地仓库完成作业后，push 到自己的 GitHub 远程仓库。
@@ -25,4 +31,5 @@
 2. 你也可以看到其他同学的作业，取长补短。
 
 ## 注意事项
- 如果对 Git 和 GitHub 不太了解，请参考 [Git 官方文档](https://git-scm.com/book/zh/v2) 或者极客时间的[《玩转 Git 三剑客》](https://time.geekbang.org/course/intro/145)视频课程。
+ 如果对 Git 和 GitHub 不太了解，请参考 [Git 官方文档](https://git-scm.com/book/zh/v2) 或者极客时间的[《玩转 Git 三剑客》](https://time.geekbang.org/course/intro/145)视频课程
+
