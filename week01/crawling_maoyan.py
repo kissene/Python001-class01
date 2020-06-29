@@ -40,7 +40,7 @@ def get_moves_info(url, num=10):
         # 使用pandas 整理数据到文件
         movie = pd.DataFrame(data=move_list)
         # windows需要使用gbk字符集
-        movie.to_csv('./maoyan.csv', encoding='UTF-8', index=False, header=['影片名称', '类型', '上映日期'])
+        movie.to_csv('./maoyan.csv', encoding='UTF-8', index=False, header=['影片名称', '电影类型', '上映时间'])
     else:
         print("数组为空，不生成文件")
 
