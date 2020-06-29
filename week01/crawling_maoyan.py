@@ -9,32 +9,18 @@ __author__ = 'kissene_xie'
 
 import requests
 from bs4 import BeautifulSoup as bs
-from fake_useragent import UserAgent
 import pandas as pd
+from week01.utils.get_user_agent_setting import get_setting
 
-ua = UserAgent()
 
 mao_yan_url = 'https://maoyan.com/films?showType=3'
 
 def get_moves_info(url, num=10):
     # 初始化数组
     move_list = []
-    headers = {
-        "User-Agent": ua.random,
-        'Content-Type': 'text/plain; charset=UTF-8',
-        "Host": "maoyan.com",
-        "Origin": "https://maoyan.com",
-        "Referer": "https://maoyan.com/board/4",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
-    }
-    cookies = r'_lxsdk_cuid=172d168b465c8-07694b0d6af31b-f7d123e-144000-172d168b466c8; _lxsdk=32FE24C0B2E611EA8A833903D31672838A2F645D21064B67B77010041BC9A3BF; Hm_lvt_703e94591e87be68cc8da0da7cbd0be2=1592651238; Hm_lpvt_703e94591e87be68cc8da0da7cbd0be2=1592651238; __mta=150257545.1592651244500.1592651244500.1592651244500.1; _lx_utm=utm_source%3DBaidu%26utm_medium%3Dorganic; _lxsdk_s=172d168b46f-ae0-993-411%7C%7C12; __mta=150257545.1592651244500.1592651244500.1592651283319.2'
-    cookies_dict = {}  # 初始化cookies字典变量
-    for line in cookies.split(';'):  # 按照字符：进行划分读取
-        # 其设置为1就会把字符串拆分成2份
-        name, value = line.strip().split('=', 1)
-        cookies_dict[name] = value
+    header_config = get_setting()
 
-    response = requests.get(url, headers=headers, cookies = cookies_dict)
+    response = requests.get(url, headers=header_config['headers'], cookies=header_config['cookies'])
     bs_info = bs(response.text, 'html.parser')
     infos_list = bs_info.find_all('div', attrs={'class': 'movie-hover-info'})
     for infos in infos_list[0:num]:
