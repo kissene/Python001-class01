@@ -20,8 +20,7 @@ class MaoyanSpider(scrapy.Spider):
             item['name'] = name.extract_first()
             item['type'] = m_type.extract()[1].split('\n')[1].strip()
             item['time'] = time[1].extract().split('\n')[1].strip()
-
-        yield item
+            yield item
 
 
 if __name__ == '__main__':

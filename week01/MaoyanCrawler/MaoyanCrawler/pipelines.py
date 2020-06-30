@@ -10,7 +10,7 @@ import csv
 
 class MaoyancrawlerPipeline:
     def __init__(self):
-        self.file = open('./spider_movie.csv', 'w', newline='')
+        self.file = open('./spider_movie.csv', 'w', newline='',encoding='utf-8')
         self.csv_writer = csv.writer(self.file)
         self.csv_writer.writerow(['影片名称', '电影类型', '上映时间'])
 
