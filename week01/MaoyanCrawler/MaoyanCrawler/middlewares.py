@@ -2,12 +2,24 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+import random
 
 from scrapy import signals
 
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
 
+class IpProxyDownloadMiddleware(object):
+    '''
+    定义代理ip的类,这是开放代理的应用
+    '''
+    PROXIES = [
+        '103.99.10.49:83'
+    ]
+
+    def process_request(self, request, spider):
+        proxy = random.choice(self.PROXIES)
+        request.meta['proxy'] = proxy
 
 class MaoyancrawlerSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,

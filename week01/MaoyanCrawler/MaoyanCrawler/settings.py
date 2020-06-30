@@ -51,7 +51,7 @@ ROBOTSTXT_OBEY = True
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   'middlewares.user_agent_middlewares.RandomUserAgentMiddleware': 543,
+   'middleware.user_agent_middlewares.RandomUserAgentMiddleware': 543,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 }
 
@@ -64,7 +64,8 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'MaoyanCrawler.pipelines.MaoyancrawlerPipeline': 300,
+    'MaoyanCrawler.middlewares.IpProxyDownloadMiddleware': 299,
+    'MaoyanCrawler.pipelines.MaoyancrawlerPipeline': 300
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
