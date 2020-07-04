@@ -6,6 +6,8 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
+# from week02.proxy_crawler.config.config import IF_USE_PROXY
+from ..config.config import IF_USE_PROXY
 
 BOT_NAME = 'proxy_crawler'
 
@@ -62,15 +64,15 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'proxy_crawler.pipelines.ProxyCrawlerPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'proxy_crawler.pipelines.ProxyCrawlerPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
 # The initial download delay
-#AUTOTHROTTLE_START_DELAY = 5
+AUTOTHROTTLE_START_DELAY = 5
 # The maximum download delay to be set in case of high latencies
 #AUTOTHROTTLE_MAX_DELAY = 60
 # The average number of requests Scrapy should be sending in parallel to
@@ -86,3 +88,26 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# 默认使用 IP 代理池
+if IF_USE_PROXY:
+    DOWNLOADER_MIDDLEWARES = {
+
+        # 第二行的填写规则
+        #  yourproject.myMiddlewares(文件名).middleware类
+
+        # 设置 User-Agent
+        'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
+        'proxyPool.scrapy.RandomUserAgentMiddleware.RandomUserAgentMiddleware': 400,
+
+        # 设置代理
+        'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,
+        'proxyPool.scrapy.middlewares.ProxyMiddleware': 100,
+
+        # 设置自定义捕获异常中间层
+        'proxyPool.scrapy.middlewares.CatchExceptionMiddleware': 105,
+
+        # 设置自定义重连中间件
+        'scrapy.contrib.downloadermiddleware.retry.RetryMiddleware': None,
+        'proxyPool.scrapy.middlewares.RetryMiddleware': 95,
+    }

@@ -1,5 +1,6 @@
 import scrapy
-from week02.proxy_crawler.proxy_crawler.items import ProxyCrawlerItem
+# from week02.proxy_crawler.proxy_crawler.items import ProxyCrawlerItem
+from ..items import ProxyCrawlerItem
 from scrapy.selector import Selector
 
 
