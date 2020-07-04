@@ -26,3 +26,5 @@ __pycache__/
 
 #csv
 *.csv
+#log文件
+proxy_*.txt
