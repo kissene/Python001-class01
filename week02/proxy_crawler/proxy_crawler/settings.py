@@ -6,8 +6,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-# from week02.proxy_crawler.config.config import IF_USE_PROXY
-from ..config.config import IF_USE_PROXY
+from week02.proxy_crawler.config.config import IF_USE_PROXY
 
 BOT_NAME = 'proxy_crawler'
 

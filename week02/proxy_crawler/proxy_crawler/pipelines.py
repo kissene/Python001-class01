@@ -11,8 +11,7 @@ from itemadapter import ItemAdapter
 
 import os
 import configparser
-# from week02.proxy_crawler.proxy_crawler.utils.DB import SQLManager
-from .utils.DB import SQLManager
+from week02.proxy_crawler.proxy_crawler.utils.DB import SQLManager
 
 cp = configparser.ConfigParser()
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
