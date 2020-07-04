@@ -16,7 +16,7 @@ from week02.proxy_crawler.proxyPool.spiders.baseSpider import BaseSpider
 from fake_useragent import UserAgent
 class Data5uSpider(BaseSpider):
 
-    url = 'http://www.data5u.com/free/gngn/index.shtml'
+    url = 'http://www.data5u.com'
 
     agent = "data5u"
     user_a = UserAgent()
@@ -25,7 +25,7 @@ class Data5uSpider(BaseSpider):
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
         'Accept-Language': 'zh-CN,zh;q=0.8',
         'Accept-Encoding': 'gzip, deflate, br',
-        'Referer': 'http://www.data5u.com/free/gngn/index.shtml',
+        'Referer': 'http://www.data5u.com',
         'Content-Type': 'text/html;charset=UTF-8',
         'Cache-Control': 'no-cache',
         'Host': 'www.data5u.com',
@@ -51,10 +51,10 @@ class Data5uSpider(BaseSpider):
             try:
                 ip = info.xpath('//ul[@class="l2"]/span[1]/li/text()')[i]               # ip
                 port = info.xpath('//ul[@class="l2"]/span[2]/li/text()')[i]             # 端口
-                anonymity = info.xpath('//ul[@class="l2"]/span[3]/li/a/text()')[i]      # 匿名度
-                http_type = info.xpath('//ul[@class="l2"]/span[4]/li/a/text()')[i]           # 类型
-                area = info.xpath('//ul[@class="l2"]/span[6]/li/a[1]/text()')[i]        # 地区, 省
-                area = area + info.xpath('//ul[@class="l2"]/span[6]/li/a[2]/text()')[i]  # 地区, 市
+                anonymity = info.xpath('//ul[@class="l2"]/span[3]/li/text()')[i]      # 匿名度
+                http_type = info.xpath('//ul[@class="l2"]/span[4]/li/text()')[i]           # 类型
+                area = info.xpath('//ul[@class="l2"]/span[5]/li/text()')[i]        # 地区, 省
+                area = area + info.xpath('//ul[@class="l2"]/span[6]/li/text()')[i]  # 地区, 市
                 speed = info.xpath('//ul[@class="l2"]/span[8]/li/text()')[i]            # 速度
 
                 print(ip + " | " + port + " | " + anonymity + " | " + http_type + " | " + area + " | " + speed + " | ")
