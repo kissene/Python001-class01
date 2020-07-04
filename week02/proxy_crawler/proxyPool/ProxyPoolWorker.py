@@ -7,7 +7,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 from week02.proxy_crawler.proxyPool.dbManager.proxyDBManager import ProxyDBManager
 from week02.proxy_crawler.proxyPool.requester import requestEnginer
-from week02.proxy_crawler.proxyPool.spiders.data5uSpider import Data5uSpider
+# from week02.proxy_crawler.proxyPool.spiders.data5uSpider import Data5uSpider
+from week02.proxy_crawler.proxyPool.spiders.Ip66Spider import Ip66Spider
 # from week02.proxy_crawler.proxyPool.spiders.kuaidailiSpider import KuaidailiSpider
 # from week02.proxy_crawler.proxyPool.spiders.xiciSpider import XiciSpider
 
@@ -63,8 +64,9 @@ class ProxyPoolWorker(object):
 
         spiders = [
             # XiciSpider,
-            Data5uSpider,
+            # Data5uSpider,
             # KuaidailiSpider,
+            Ip66Spider
         ]
 
         # for spider in spiders:
