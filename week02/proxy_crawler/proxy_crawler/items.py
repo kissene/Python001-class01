@@ -7,6 +7,9 @@ import scrapy
 
 
 class ProxyCrawlerItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    # 电影名称
+    name = scrapy.Field()
+    # 电影类型
+    type = scrapy.Field()
+    # 上映时间
+    time = scrapy.Field()

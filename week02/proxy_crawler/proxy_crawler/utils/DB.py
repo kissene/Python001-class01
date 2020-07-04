@@ -79,8 +79,8 @@ if __name__ == "__main__":
         info = cp.items('mysql')
         db = SQLManager(dict(info))
         with db as d:
-            result = db.get_one(sql_ver)
-            print(result)
+            r = db.get_one(sql_ver)
+            print(r)
     else:
         raise FileNotFoundError('未发现配置文件！~ {}'.format(config_file))
 
