@@ -25,6 +25,6 @@ __pycache__/
 **/migrations/
 
 #csv
-*.csv
+/week01/**/*.csv
 #log文件
 proxy_*.txt
